@@ -7,8 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SecondActivity">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,37 +17,49 @@
             android:id="@+id/edtName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="اسم المندوب" />
+            android:hint="Delegate Name" />
 
         <EditText
-            android:id="@+id/edtPhone"
+            android:id="@+id/edtNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="رقم الهاتف" />
+            android:hint="Delegate Number" />
 
         <EditText
-            android:id="@+id/edtRegion"
+            android:id="@+id/edtPhoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="المنطقة" />
+            android:hint="Photo Path" />
 
         <EditText
-            android:id="@+id/edtImage"
+            android:id="@+id/edtArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="مسار الصورة" />
+            android:hint="Main Area" />
 
         <Button
             android:id="@+id/btnAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="إضافة" />
+            android:text="Add Delegate" />
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Delegate" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete Delegate" />
 
         <Button
             android:id="@+id/btnViewAll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="عرض جميع المندوبين" />
+            android:text="View All Delegates" />
 
         <ListView
             android:id="@+id/listView"

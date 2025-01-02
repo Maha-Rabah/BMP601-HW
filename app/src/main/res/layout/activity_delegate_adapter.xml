@@ -5,16 +5,19 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RepresentativeAdapter">
+    tools:context=".DelegateAdapter">
 
+    <!-- Delegate Photo -->
     <ImageView
-        android:id="@+id/imgProfile"
+        android:id="@+id/imgPhoto"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src=""
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/logo" />
 
+    <!-- Delegate Details -->
     <LinearLayout
+        android:id="@+id/layoutItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -24,33 +27,21 @@
             android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="اسم المندوب"
+            android:text="Delegate Name"
             android:textStyle="bold"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/txtPhone"
+            android:id="@+id/txtNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="رقم الهاتف" />
+            android:text="Delegate Number" />
 
         <TextView
-            android:id="@+id/txtRegion"
+            android:id="@+id/txtArea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="المنطقة" />
+            android:text="Main Area" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="تعديل" />
-
-    <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="حذف" />
 </LinearLayout>
-
