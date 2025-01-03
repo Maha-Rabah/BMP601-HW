@@ -31,11 +31,11 @@
             android:layout_height="wrap_content"
             android:hint="Photo Path" />
 
-        <EditText
-            android:id="@+id/edtArea"
+        <!-- Dropdown Spinner for Main Area -->
+        <Spinner
+            android:id="@+id/spinnerArea"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Main Area" />
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btnAdd"

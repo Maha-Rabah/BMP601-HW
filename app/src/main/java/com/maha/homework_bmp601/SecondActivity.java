@@ -3,9 +3,12 @@ package com.maha.homework_bmp601;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +17,8 @@ import java.util.ArrayList;
 
 public class SecondActivity extends AppCompatActivity {
 
-    EditText edtName, edtNumber, edtPhoto, edtArea;
+    EditText edtName, edtNumber, edtPhoto;
+    Spinner spinnerArea;
     Button btnAdd, btnUpdate, btnDelete, btnViewAll;
     ListView listView;
 
@@ -23,6 +27,7 @@ public class SecondActivity extends AppCompatActivity {
     ArrayList<Delegate> delegateList;
 
     int selectedDelegateId = -1; // To track the selected delegate for update or delete.
+    String selectedArea = ""; // To track the selected area from Spinner.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +38,7 @@ public class SecondActivity extends AppCompatActivity {
         edtName = findViewById(R.id.edtName);
         edtNumber = findViewById(R.id.edtNumber);
         edtPhoto = findViewById(R.id.edtPhoto);
-        edtArea = findViewById(R.id.edtArea);
+        spinnerArea = findViewById(R.id.spinnerArea);
 
         btnAdd = findViewById(R.id.btnAdd);
         btnUpdate = findViewById(R.id.btnUpdate);
@@ -45,19 +50,41 @@ public class SecondActivity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
         delegateList = new ArrayList<>();
 
+        // Set up the Spinner with area options
+
+        ArrayAdapter<CharSequence> adapterSpinner = ArrayAdapter.createFromResource(
+                this,
+                R.array.area_options, // Array defined in strings.xml
+                android.R.layout.simple_spinner_item
+        );
+        adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerArea.setAdapter(adapterSpinner);
+
+        // Handle Spinner selection
+        spinnerArea.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedArea = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                selectedArea = ""; // Reset if nothing is selected
+            }
+        });
+
         // Add a new delegate
         btnAdd.setOnClickListener(v -> {
             String name = edtName.getText().toString();
             String number = edtNumber.getText().toString();
             String photo = edtPhoto.getText().toString();
-            String area = edtArea.getText().toString();
 
-            if (name.isEmpty() || number.isEmpty() || photo.isEmpty() || area.isEmpty()) {
+            if (name.isEmpty() || number.isEmpty() || photo.isEmpty() || selectedArea.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            boolean result = databaseHelper.insertDelegate(name, number, photo, area);
+            boolean result = databaseHelper.insertDelegate(name, number, photo, selectedArea);
             if (result) {
                 Toast.makeText(this, "Delegate added successfully", Toast.LENGTH_SHORT).show();
                 clearFields();
@@ -77,14 +104,13 @@ public class SecondActivity extends AppCompatActivity {
             String name = edtName.getText().toString();
             String number = edtNumber.getText().toString();
             String photo = edtPhoto.getText().toString();
-            String area = edtArea.getText().toString();
 
-            if (name.isEmpty() || number.isEmpty() || photo.isEmpty() || area.isEmpty()) {
+            if (name.isEmpty() || number.isEmpty() || photo.isEmpty() || selectedArea.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            boolean result = databaseHelper.updateDelegate(selectedDelegateId, name, number, photo, area);
+            boolean result = databaseHelper.updateDelegate(selectedDelegateId, name, number, photo, selectedArea);
             if (result) {
                 Toast.makeText(this, "Delegate updated successfully", Toast.LENGTH_SHORT).show();
                 clearFields();
@@ -145,7 +171,11 @@ public class SecondActivity extends AppCompatActivity {
         edtName.setText(delegate.getName());
         edtNumber.setText(delegate.getPhone());
         edtPhoto.setText(delegate.getPhoto());
-        edtArea.setText(delegate.getRegion());
+
+        // Set the spinner to the selected area
+        ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) spinnerArea.getAdapter();
+        int position = adapter.getPosition(delegate.getRegion());
+        spinnerArea.setSelection(position);
     }
 
     // Clear input fields
@@ -153,7 +183,7 @@ public class SecondActivity extends AppCompatActivity {
         edtName.setText("");
         edtNumber.setText("");
         edtPhoto.setText("");
-        edtArea.setText("");
+        spinnerArea.setSelection(0);
         selectedDelegateId = -1;
     }
 }

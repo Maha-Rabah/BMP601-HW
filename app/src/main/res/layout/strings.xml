@@ -1,5 +1,4 @@
-<resources>
-    <string name="app_name">Homework_BMP601</string>
+
     <string-array name="area_options">
         <item>لبنان</item>
         <item>سوريا المنطقة الشمالية</item>
@@ -7,4 +6,3 @@
         <item>سوريا المنطقة الشرقية</item>
         <item>سوريا المنطقة الغربية</item>
     </string-array>
-</resources>
