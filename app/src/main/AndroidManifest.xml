@@ -13,22 +13,7 @@
         android:theme="@style/Theme.Homework_BMP601"
         tools:targetApi="31">
         <activity
-            android:name=".DataModel.Delegate"
-            android:exported="false" />
-        <activity
-            android:name=".Employee"
-            android:exported="false" />
-        <activity
-            android:name=".Adapters.DelegateAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".EmployeeAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".RepresentativeAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".DatabaseHelper"
+            android:name=".FifthActivity"
             android:exported="false" />
         <activity
             android:name=".SecondActivity"
