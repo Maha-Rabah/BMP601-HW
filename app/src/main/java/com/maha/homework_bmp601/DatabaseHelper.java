@@ -97,12 +97,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Insert a new delegate
-    public boolean insertDelegate(String name, String number, String photo, String area) {
+    public boolean insertDelegate(String name, String number, String photo, int regionId) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_Delegate_NAME, name);
         contentValues.put(COL_Delegate_Number, number);
         contentValues.put(COL_Delegate_Photo, photo);
+        contentValues.put(COL_REGION_ID, regionId); // إدخال ID المنطقة
         //make the region as a select from drop menu not entered manually it will insert into the database the region_id to be linked with region table
         //contentValues.put(COL_Region, area);
 
@@ -117,15 +118,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Update a delegate
-    public boolean updateDelegate(int id, String name, String number, String photo, String area) {
+    public boolean updateDelegate(int id, String name, String number, String photo, int regionId) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_Delegate_NAME, name);
         contentValues.put(COL_Delegate_Number, number);
         contentValues.put(COL_Delegate_Photo, photo);
+        contentValues.put(COL_REGION_ID, regionId); // إدخال ID المنطقة
         //make the region as a select from drop menu not entered manually it will insert into the database the region_id to be linked with region table
         //contentValues.put(COL_Region, area);
-
         int result = db.update(TABLE_Delegate, contentValues, COL_Delegate_ID + "=?", new String[]{String.valueOf(id)});
         return result > 0;
     }

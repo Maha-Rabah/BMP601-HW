@@ -5,7 +5,7 @@ public class Delegate {
     private String name;
     private String phone;
     //change type to int as it should be regionID instead of region name
-    private String region;
+    private String regionId;
     private String photo;
 
 
@@ -13,7 +13,7 @@ public class Delegate {
         this.id = id;
         this.name = name;
         this.phone = phone;
-        this.region = region;
+        this.regionId = region;
         this.photo=photo;
     }
 
@@ -28,7 +28,7 @@ public class Delegate {
         return phone;
     }
     public String getRegion() {
-        return region;
+        return regionId;
     }
     public String getPhoto() {
         return photo;

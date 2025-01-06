@@ -31,7 +31,7 @@ public class SecondActivity extends AppCompatActivity {
 
     int selectedDelegateId = -1; // To track the selected delegate for update or delete.
     String selectedArea = ""; // To track the selected area from Spinner.
-
+    int selectedRegionId = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,12 +67,18 @@ public class SecondActivity extends AppCompatActivity {
         spinnerArea.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedArea = parent.getItemAtPosition(position).toString();
+//                selectedArea = parent.getItemAtPosition(position).toString();
+                {
+                    // تعيين ID المنطقة بناءً على الاختيار
+                    selectedRegionId = position + 1; // ID يبدأ من 1
+                }
+
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                selectedArea = ""; // Reset if nothing is selected
+//                selectedArea = ""; // Reset if nothing is selected
+                selectedRegionId = -1; //
             }
         });
 
@@ -82,12 +88,12 @@ public class SecondActivity extends AppCompatActivity {
             String number = edtNumber.getText().toString();
             String photo = edtPhoto.getText().toString();
 
-            if (name.isEmpty() || number.isEmpty() || photo.isEmpty() || selectedArea.isEmpty()) {
+            if (name.isEmpty() || number.isEmpty() || photo.isEmpty() || selectedArea.isEmpty() || selectedRegionId == -1) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            boolean result = databaseHelper.insertDelegate(name, number, photo, selectedArea);
+            boolean result = databaseHelper.insertDelegate(name, number, photo, selectedRegionId);
             if (result) {
                 Toast.makeText(this, "Delegate added successfully", Toast.LENGTH_SHORT).show();
                 clearFields();
@@ -113,7 +119,7 @@ public class SecondActivity extends AppCompatActivity {
                 return;
             }
 
-            boolean result = databaseHelper.updateDelegate(selectedDelegateId, name, number, photo, selectedArea);
+            boolean result = databaseHelper.updateDelegate(selectedDelegateId, name, number, photo, selectedRegionId);
             if (result) {
                 Toast.makeText(this, "Delegate updated successfully", Toast.LENGTH_SHORT).show();
                 clearFields();
