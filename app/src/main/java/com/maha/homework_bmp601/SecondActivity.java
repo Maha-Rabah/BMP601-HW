@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.maha.homework_bmp601.Adapters.DelegateAdapter;
+import com.maha.homework_bmp601.DataModel.Delegate;
+
 import java.util.ArrayList;
 
 public class SecondActivity extends AppCompatActivity {

@@ -1,9 +1,10 @@
-package com.maha.homework_bmp601;
+package com.maha.homework_bmp601.DataModel;
 
 public class Delegate {
     private int id;
     private String name;
     private String phone;
+    //change type to int as it should be regionID instead of region name
     private String region;
     private String photo;
 
@@ -23,11 +24,9 @@ public class Delegate {
     public String getName() {
         return name;
     }
-
     public String getPhone() {
         return phone;
     }
-
     public String getRegion() {
         return region;
     }

@@ -136,4 +136,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int result = db.delete(TABLE_Delegate, COL_Delegate_ID + "=?", new String[]{String.valueOf(id)});
         return result > 0;
     }
+    public Cursor getDataByMonthYear(int delegateId, int month, int year) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selection = COL_Delegate_ID + "=? AND " + COL_SALE_ID +
+                " IN (SELECT " + COL_SALE_ID + " FROM " + TABLE_SALE +
+                " WHERE " + COL_Delegate_ID + "=? AND " + COL_SALE_MONTH + "=? AND " + COL_SALE_YEAR + "=? )";
+        String[] selectionArgs = {String.valueOf(delegateId),
+                String.valueOf(delegateId),
+                String.valueOf(month),
+                String.valueOf(year)};
+
+        return db.query(TABLE_COMMISSION,
+                null,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null // Order by
+        );
+    }
 }

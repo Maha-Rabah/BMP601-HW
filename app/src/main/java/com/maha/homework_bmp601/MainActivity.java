@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnGoToFifthActivity.setOnClickListener(v -> {
-//            Intent intent = new Intent(MainActivity.this, FifthActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, FifthActivity.class);
+            startActivity(intent);
         });
     }
 }
