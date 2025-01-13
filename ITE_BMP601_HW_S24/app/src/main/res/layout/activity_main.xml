@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <!-- شعار الشركة -->
+    <ImageView
+        android:id="@+id/companyLogo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_company_logo"
+        android:contentDescription="Company Logo"
+        android:layout_gravity="center" />
+
+    <!-- اسم الشركة -->
+    <TextView
+        android:id="@+id/companyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Company Name"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <!-- أزرار التنقل -->
+    <Button
+        android:id="@+id/btn_add_employee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Employee"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btn_add_sales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Sales"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btn_search_sales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search Sales"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btn_search_commission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search Commission"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btn_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Main Page"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ITE_BMP601_HW_S24</string>
+    <string name="tv_date">Date</string>
+    <string name="et_month">month</string>
+    <string name="et_year">Year</string>
+    <string name="btn_text">"العمولة "</string>
+    <string name="tv_north">المنطقة الشمالية</string>
+    <string name="tv_south">المنطقة الجنوبية</string>
+    <string name="tv_east">المنطقة الشرقية</string>
+    <string name="tv_west">المنطقة الغربية</string>
+    <string name="hint_money">المبلغ</string>
+    <string name="hint_name">ادخل اسمك</string>
+    <string name="tv_region">منطقتك</string>
+    <string name="tv_lebanon">لبنان</string>
+    <string name="btn_Commission">العمولة\n</string>
+    <string name="btn_AddEmployee">اضافة عميل</string>
+    <string name="btn_search">بحث</string>
+    <string name="hint_ed_region">منطقتك</string>
+</resources>

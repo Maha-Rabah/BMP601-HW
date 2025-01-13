@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/im_yourPhoto"
+            android:layout_width="173dp"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="124dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="27dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/ed_name"
+                    android:layout_width="164dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/hint_name"
+                    android:inputType="text"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:id="@+id/btn_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/btn_search" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_yourRegion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tv_region"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/tv_date"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/ed_month"
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/et_month"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/ed_year"
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/et_year"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="169dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_north"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_north" />
+
+            <EditText
+                android:id="@+id/ed_north"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints="0"
+                android:ems="10"
+                android:hint="@string/hint_money"
+                android:inputType="number"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_south"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_south" />
+
+            <EditText
+                android:id="@+id/ed_south"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="0"
+                android:ems="10"
+                android:hint="@string/hint_money"
+                android:inputType="number"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_east"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_east" />
+
+            <EditText
+                android:id="@+id/ed_east"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="0"
+                android:ems="10"
+                android:hint="@string/hint_money"
+                android:inputType="number"
+                android:textSize="20sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_west"
+                android:layout_width="116dp"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_west" />
+
+            <EditText
+                android:id="@+id/ed_west"
+                android:layout_width="331dp"
+                android:layout_height="wrap_content"
+                android:autofillHints="0"
+                android:ems="10"
+                android:hint="@string/hint_money"
+                android:inputType="number"
+                android:textSize="20sp" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_lebanon"
+                android:layout_width="116dp"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_lebanon" />
+
+            <EditText
+                android:id="@+id/ed_lebanon"
+                android:layout_width="331dp"
+                android:layout_height="wrap_content"
+                android:autofillHints="0"
+                android:ems="10"
+                android:hint="@string/hint_money"
+                android:inputType="number"
+                android:textSize="20sp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_cost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <Button
+                    android:id="@+id/btn_profit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onclick"
+                    android:text="@string/btn_text" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <Button
+                    android:id="@+id/btn_view_commissions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="View Commissions" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <Button
+                    android:id="@+id/btn_view_sales"
+                    android:layout_width="434dp"
+                    android:layout_height="wrap_content"
+                    android:text="View Sales" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </TableLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
