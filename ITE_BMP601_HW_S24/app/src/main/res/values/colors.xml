@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="silver">#C2CFB2</color>
+    <color name="DarkSeaGreen">#8DB580</color>
+    <color name="Mummy_tomb">#7E8987</color>
+    <color name="Independent">#4B4A67</color>
 </resources>

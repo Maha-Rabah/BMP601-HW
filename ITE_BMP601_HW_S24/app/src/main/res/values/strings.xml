@@ -16,4 +16,8 @@
     <string name="btn_AddEmployee">اضافة عميل</string>
     <string name="btn_search">بحث</string>
     <string name="hint_ed_region">منطقتك</string>
+    <string name="participated_std">الطلاب المشاركون:\n
+    احمد العضم | Ahmad_154538@svuonline.org | C1\n
+    مهى رباح | maha_153554@svuonline.org | C1\n
+    وسيم سمير اسعد | wasim_226664@svuonline.org | C1</string>
 </resources>

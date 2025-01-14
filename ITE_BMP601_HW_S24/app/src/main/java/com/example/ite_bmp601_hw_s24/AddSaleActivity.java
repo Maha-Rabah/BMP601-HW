@@ -3,10 +3,15 @@ package com.example.ite_bmp601_hw_s24;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,7 +19,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 public class AddSaleActivity extends AppCompatActivity {
     EditText ed_name,ed_month,ed_year, ed_north, ed_south, ed_west, ed_east, ed_lebanon;
@@ -26,6 +36,8 @@ public class AddSaleActivity extends AppCompatActivity {
     TextView tv_yourRegion;
     SQLiteDatabase db;
     MediaPlayer mediaPlayer;
+    private ActivityResultLauncher<Intent> pickImageLauncher;
+    private byte[] imageBytes;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -49,14 +61,16 @@ public class AddSaleActivity extends AppCompatActivity {
         btn_view_commissions = findViewById(R.id.btn_view_commissions);
 
 
+
         db = openOrCreateDatabase("EmployeeDB", Context.MODE_PRIVATE, null);
         //db.execSQL("DROP TABLE IF EXISTS sales");
         //db.execSQL("DROP TABLE IF EXISTS commissions");
         db.execSQL("CREATE TABLE IF NOT EXISTS employees (" +
                 "Rollno NVARCHAR PRIMARY KEY, " +
-                "Name NVARCHAR UNIQUE NOT NULL, " +
-                "Region NVARCHAR NOT NULL, " +
-                "JoinDate NVARCHAR)");
+                "Name NVARCHAR UNIQUE, " +
+                "Region NVARCHAR, " +
+                "JoinDate NVARCHAR, " +
+                "Photo BLOB)");
 
         db.execSQL("CREATE TABLE IF NOT EXISTS sales (" +
                 "Saleno INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -84,38 +98,47 @@ public class AddSaleActivity extends AppCompatActivity {
         btn_search.setOnClickListener(this::onSearchClick);
         btn_view_sales.setOnClickListener(view -> viewSales());
         btn_view_commissions.setOnClickListener(view -> viewCommissions());
-
+        im_yourPhoto.setImageResource(R.drawable.ic_default_photo);
+    }
+    private byte[] compressImage(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream); // Adjust quality (0-100)
+        return stream.toByteArray();
     }
 
+    @SuppressLint("SetTextI18n")
     public void onSearchClick(View view) {
-        // جلب اسم الموظف من الحقل
         String name = ed_name.getText().toString().trim();
 
-        // التحقق من أن الاسم غير فارغ
         if (name.isEmpty()) {
             Toast.makeText(this, "Please enter an employee name", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // تنفيذ استعلام SQL للبحث عن الموظف بناءً على الاسم
-        Cursor cursor = db.rawQuery("SELECT Region FROM employees WHERE Name = ?", new String[]{name});
+        Cursor cursor = db.rawQuery("SELECT Region, Photo FROM employees WHERE Name = ?", new String[]{name});
 
-        // إذا تم العثور على الموظف
-        if (cursor.moveToFirst()) {
-            String region = cursor.getString(0);
-            tv_yourRegion.setText("Region: " + region);
+        try {
+            if (cursor.moveToFirst()) {
+                String region = cursor.getString(0);
+                byte[] photoBytes = cursor.getBlob(1); // Get the image as BLOB
 
-            // عرض الصورة الافتراضية دائمًا
-            im_yourPhoto.setImageResource(R.drawable.ic_placeholder);
-        } else {
-            // إذا لم يتم العثور على الموظف
-            Toast.makeText(this, "Employee not found", Toast.LENGTH_SHORT).show();
-            tv_yourRegion.setText("Region: Not Found");
-            im_yourPhoto.setImageResource(R.drawable.ic_placeholder);
+                tv_yourRegion.setText("Region: " + region);
+
+                if (photoBytes != null) {
+                    // Convert byte array to Bitmap
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(photoBytes, 0, photoBytes.length);
+                    im_yourPhoto.setImageBitmap(bitmap);
+                } else {
+                    im_yourPhoto.setImageResource(R.drawable.ic_placeholder);
+                }
+            } else {
+                Toast.makeText(this, "Employee not found", Toast.LENGTH_SHORT).show();
+                tv_yourRegion.setText("Region: Not Found");
+                im_yourPhoto.setImageResource(R.drawable.ic_placeholder);
+            }
+        } finally {
+            cursor.close();
         }
-
-        // إغلاق المؤشر
-        cursor.close();
     }
 
 
@@ -148,11 +171,8 @@ public class AddSaleActivity extends AppCompatActivity {
             } else {
                 insertSales(name, month, year, north, south, west, east, lebanon);
                 insertCommission(name, month, year, totalCommission);
-
-                // عرض رسالة النجاح
                 Toast.makeText(this, "Sales and commission added successfully!", Toast.LENGTH_LONG).show();
 
-                // عرض رسالة إضافية كنافذة حوار
                 new AlertDialog.Builder(this)
                         .setTitle("Operation Successful")
                         .setMessage("Sales and commission have been successfully added to the database.\nTotal Commission: " + totalCommission + " S.P")
@@ -322,4 +342,5 @@ public class AddSaleActivity extends AppCompatActivity {
         }
         super.onDestroy();
     }
+
 }

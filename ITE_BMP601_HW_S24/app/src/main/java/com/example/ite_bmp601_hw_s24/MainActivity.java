@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnAddSales = findViewById(R.id.btn_add_sales);
         Button btnSearchSales = findViewById(R.id.btn_search_sales);
         Button btnSearchCommission = findViewById(R.id.btn_search_commission);
-        Button btnMainPage = findViewById(R.id.btn_main);
+
 
         btnAddEmployee.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, Add_employee.class);
@@ -40,9 +40,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        btnMainPage.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            startActivity(intent);
-        });
+
     }
 }

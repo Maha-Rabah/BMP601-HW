@@ -19,6 +19,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,6 +34,7 @@ public class Add_employee extends AppCompatActivity {
     ImageView imgPhoto;
     Button btnAdd, btnDelete, btnModify, btnView, btnViewAll, btnShowInfo,btnChoosePhoto;
     SQLiteDatabase db;
+    private ActivityResultLauncher<Intent> pickImageLauncher;
     private byte[] imageBytes;
 
     @SuppressLint("MissingInflatedId")
@@ -39,6 +42,9 @@ public class Add_employee extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_employee);
+
+
+        // Initialize the ActivityResultLauncher
 
 
         editRollno = findViewById(R.id.ed_Rollno);
@@ -59,7 +65,21 @@ public class Add_employee extends AppCompatActivity {
         String[] regions = {"North", "South", "West", "East", "Lebanon"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, regions);
         spinnerRegion.setAdapter(adapter);
-
+        pickImageLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        Uri selectedImageUri = result.getData().getData();
+                        try {
+                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);
+                            imageBytes = compressImage(bitmap); // Compress the image
+                            imgPhoto.setImageBitmap(bitmap);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+        );
 
         db = openOrCreateDatabase("EmployeeDB", Context.MODE_PRIVATE, null);
         //db.execSQL("DROP TABLE IF EXISTS employees");
@@ -84,28 +104,17 @@ public class Add_employee extends AppCompatActivity {
         imgPhoto.setImageResource(R.drawable.ic_default_photo);
     }
 
+    private byte[] compressImage(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream); // Adjust quality (0-100)
+        return stream.toByteArray();
+    }
     private void pickImage() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, 1);
+        pickImageLauncher.launch(intent);
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
-            Uri selectedImage = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
-                imgPhoto.setImageBitmap(bitmap);
 
-                //
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                imageBytes = stream.toByteArray();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+
     // الدالة الخاصة بإضافة موظف
     private void onAddClick(View view) {
         if (editRollno.getText().toString().trim().isEmpty() ||
@@ -120,11 +129,16 @@ public class Add_employee extends AppCompatActivity {
         String region = spinnerRegion.getSelectedItem().toString();
         String joinDate = editDate.getText().toString().trim();
 
+        if (imageBytes == null || imageBytes.length == 0) {
+            showMessage("Error", "Please select an image.");
+            return;
+        }
+
         try {
             db.execSQL("INSERT INTO employees (Rollno, Name, Region, JoinDate, Photo) VALUES (?, ?, ?, ?, ?)",
                     new Object[]{rollno, name, region, joinDate, imageBytes});
             showMessage("Success", "Employee added successfully!");
-            clearFields(); // تنظيف الحقول بعد الإضافة
+            clearFields();
         } catch (Exception e) {
             showMessage("Error", "Failed to add employee: " + e.getMessage());
         }
@@ -177,6 +191,9 @@ public class Add_employee extends AppCompatActivity {
             String joinDate = cursor.getString(3);
             byte[] photo = cursor.getBlob(4);
 
+            // Debug log to check if the photo byte array is retrieved
+            Log.d("DEBUG", "Photo byte array length: " + (photo != null ? photo.length : "null"));
+
             showMessage("Employee Details",
                     "Roll Number: " + rollno +
                             "\nName: " + name +
@@ -185,7 +202,13 @@ public class Add_employee extends AppCompatActivity {
 
             if (photo != null && photo.length > 0) {
                 Bitmap bitmap = BitmapFactory.decodeByteArray(photo, 0, photo.length);
-                imgPhoto.setImageBitmap(bitmap);
+                if (bitmap != null) {
+                    Log.d("DEBUG", "Bitmap decoded successfully");
+                    imgPhoto.setImageBitmap(bitmap);
+                } else {
+                    Log.d("DEBUG", "Failed to decode bitmap from byte array");
+                    imgPhoto.setImageResource(R.drawable.ic_default_photo);
+                }
             } else {
                 Log.d("DEBUG", "Photo is null or empty");
                 imgPhoto.setImageResource(R.drawable.ic_default_photo);
