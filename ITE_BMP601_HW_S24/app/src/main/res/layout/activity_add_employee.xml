@@ -2,23 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#5D5DBA"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#4B4A67">
+    android:padding="16dp">
 
     <EditText
         android:id="@+id/ed_Rollno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Roll Number"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/ed_Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Name"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:textColorHint="#FFFEFE" />
 
     <Spinner
         android:id="@+id/spinnerRegion"
@@ -32,56 +35,64 @@
         android:layout_height="wrap_content"
         android:focusable="false"
         android:hint="Select Join Date"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:textColorHint="#F0E8EB" />
 
     <ImageView
         android:id="@+id/imgPhoto"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:src="@drawable/ic_placeholder"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_placeholder" />
 
     <Button
         android:id="@+id/btnChoosePhoto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#E7651D71"
         android:text="Choose Photo" />
 
     <Button
         android:id="@+id/btn_Add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#E7651D71"
         android:text="Add Employee" />
 
     <Button
         android:id="@+id/btn_Delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#E7651D71"
         android:text="Delete Employee" />
 
     <Button
         android:id="@+id/btn_Modify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#E7651D71"
         android:text="Modify Employee" />
 
     <Button
         android:id="@+id/btnView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#E7651D71"
         android:text="View Employee" />
 
     <Button
         android:id="@+id/btnViewAll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#E7651D71"
         android:text="View All Employees" />
 
     <Button
         android:id="@+id/btnShowInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#E7651D71"
         android:text="Show Info" />
 
 </LinearLayout>

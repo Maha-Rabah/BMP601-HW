@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#5D5DBA"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#4B4A67">
+    android:padding="16dp">
 
     <EditText
         android:id="@+id/ed_name"
@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:hint="Enter Employee Name"
         android:inputType="text"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:textColorHint="#FAF5F5" />
 
     <EditText
         android:id="@+id/ed_month"
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         android:hint="Enter Month"
         android:inputType="number"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:textColorHint="#FAF2F2" />
 
     <EditText
         android:id="@+id/ed_year"
@@ -28,12 +30,14 @@
         android:layout_height="wrap_content"
         android:hint="Enter Year"
         android:inputType="number"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:textColorHint="#F8F2F2" />
 
     <Button
         android:id="@+id/btn_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#E7651D71"
         android:text="Search Commission" />
 
     <TextView
@@ -41,7 +45,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
-        android:textSize="16sp"
-        android:text="Results will be displayed here" />
+        android:text="Results will be displayed here"
+        android:textColor="#E21B1B"
+        android:textColorHint="#F83E3E"
+        android:textSize="16sp" />
 
 </LinearLayout>
