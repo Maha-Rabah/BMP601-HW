@@ -4,21 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5D5DBA"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#4B4A67">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:layout_margin="10dp">
 
         <ImageView
             android:id="@+id/im_yourPhoto"
-            android:layout_width="173dp"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            tools:srcCompat="@tools:sample/avatars"
+            android:layout_margin="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,39 +29,39 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="27dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/ed_name"
-                    android:layout_width="164dp"
-                    android:layout_height="64dp"
+                    android:layout_width="126dp"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/hint_name"
                     android:inputType="text"
                     android:textAlignment="center"
-                    android:textColorHint="#F8F0F3" />
+                    android:textColorHint="#DDAAAAAA" />
 
                 <Button
                     android:id="@+id/btn_search"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:backgroundTint="#E7651D71"
                     android:text="@string/btn_search" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/tv_yourRegion"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/tv_region"
                 android:textAlignment="center"
-                android:textColor="#FAF0F3"
-                android:textColorHint="#F5F5FA" />
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textColor="#FFFFFFFF"/>
 
         </LinearLayout>
 
@@ -77,8 +79,7 @@
             android:layout_weight="1"
             android:text="@string/tv_date"
             android:textAlignment="center"
-            android:textColor="#FAF3F5"
-            android:textColorHint="#3F51B5" />
+            android:textColor="#FFFFFFFF"/>
 
         <EditText
             android:id="@+id/ed_month"
@@ -88,8 +89,8 @@
             android:hint="@string/et_month"
             android:inputType="number"
             android:textAlignment="center"
-            android:textColorHint="#00FAF4F6"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textColorHint="#DDAAAAAA"/>
 
         <EditText
             android:id="@+id/ed_year"
@@ -99,17 +100,18 @@
             android:hint="@string/et_year"
             android:inputType="number"
             android:textAlignment="center"
-            android:textColorHint="#F3F0F8"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textColorHint="#DDAAAAAA"/>
 
     </LinearLayout>
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
 
         <TableRow
-            android:layout_width="169dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
@@ -117,17 +119,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_north"
-                android:textColor="#EFE1E1" />
+                android:textAlignment="center"
+                android:textColor="#FFFFFFFF"/>
 
             <EditText
                 android:id="@+id/ed_north"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="0"
-                android:ems="10"
+                android:textAlignment="center"
                 android:hint="@string/hint_money"
                 android:inputType="number"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textColorHint="#DDAAAAAA"/>
         </TableRow>
 
         <TableRow
@@ -139,16 +143,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_south"
-                android:textColor="#F8F5F5" />
+                android:textAlignment="center"
+                android:textColor="#FFFFFFFF"/>
 
             <EditText
                 android:id="@+id/ed_south"
-                android:layout_width="match_parent"
+                android:layout_width="349dp"
                 android:layout_height="wrap_content"
                 android:autofillHints="0"
-                android:ems="10"
+                android:textAlignment="center"
                 android:hint="@string/hint_money"
                 android:inputType="number"
+                android:textColorHint="#DDAAAAAA"
                 android:textSize="20sp" />
         </TableRow>
 
@@ -161,62 +167,69 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_east"
-                android:textColor="#F0E8E8" />
+                android:textAlignment="center"
+                android:textColor="#FFFFFFFF"/>
 
             <EditText
                 android:id="@+id/ed_east"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="0"
-                android:ems="10"
+                android:textAlignment="center"
                 android:hint="@string/hint_money"
                 android:inputType="number"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textColorHint="#DDAAAAAA"/>
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 
             <TextView
                 android:id="@+id/tv_west"
-                android:layout_width="116dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_west"
-                android:textColor="#F0E7E7" />
+                android:textAlignment="center"
+                android:textColor="#FFFFFFFF"/>
 
             <EditText
                 android:id="@+id/ed_west"
-                android:layout_width="331dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="0"
-                android:ems="10"
+                android:textAlignment="center"
                 android:hint="@string/hint_money"
                 android:inputType="number"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+
+                android:textColorHint="#DDAAAAAA"/>
 
         </TableRow>
-
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/tv_lebanon"
-                android:layout_width="116dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_lebanon"
-                android:textColor="#FAF0F0" />
+                android:textAlignment="center"
+                android:textColor="#FFFFFFFF"/>
 
             <EditText
                 android:id="@+id/ed_lebanon"
-                android:layout_width="331dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="0"
-                android:ems="10"
+                android:textAlignment="center"
                 android:hint="@string/hint_money"
                 android:inputType="number"
+                android:textColorHint="#DDAAAAAA"
                 android:textSize="20sp" />
 
         </TableRow>
@@ -236,42 +249,42 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" >
 
                 <Button
                     android:id="@+id/btn_profit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:backgroundTint="#E7651D71"
                     android:onClick="onclick"
-                    android:text="@string/btn_text" />
+                    android:text="@string/btn_text"
+                    android:layout_margin="5dp"/>
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" >
 
                 <Button
                     android:id="@+id/btn_view_commissions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:backgroundTint="#E7651D71"
-                    android:text="View Commissions" />
+                    android:text="View Commissions"
+                    android:layout_margin="5dp"/>
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" >
 
                 <Button
                     android:id="@+id/btn_view_sales"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:backgroundTint="#E7651D71"
-                    android:text="View Sales" />
+                    android:text="View Sales"
+                    android:layout_margin="5dp"/>
             </TableRow>
 
             <TableRow

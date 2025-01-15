@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">ITE_BMP601_HW_S24</string>
     <string name="tv_date">Date</string>
-    <string name="et_month">month</string>
-    <string name="et_year">Year</string>
+    <string name="et_month">Enter Month</string>
+    <string name="et_year">Enter Year</string>
     <string name="btn_text">"العمولة "</string>
     <string name="tv_north">المنطقة الشمالية</string>
     <string name="tv_south">المنطقة الجنوبية</string>
     <string name="tv_east">المنطقة الشرقية</string>
     <string name="tv_west">المنطقة الغربية</string>
     <string name="hint_money">المبلغ</string>
-    <string name="hint_name">ادخل اسمك</string>
-    <string name="tv_region">منطقتك</string>
+    <string name="hint_name">Enter Name</string>
+    <string name="tv_region">ستظهر منطقتك هنا</string>
     <string name="tv_lebanon">لبنان</string>
     <string name="btn_Commission">العمولة\n</string>
     <string name="btn_AddEmployee">اضافة عميل</string>
@@ -20,5 +20,5 @@
     احمد العضم | Ahmad_154538@svuonline.org | C1\n
     مهى رباح | maha_153554@svuonline.org | C1\n
     وسيم سمير اسعد | wasim_226664@svuonline.org | C1\n
-    بدر الدين | Badr_Aldeen_112944@svuonline.org | C1</string>
+    بدر الدين | Bard_Aldeen_112944@svuonline.org | C1</string>
 </resources>

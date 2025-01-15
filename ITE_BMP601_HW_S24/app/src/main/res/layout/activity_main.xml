@@ -1,21 +1,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5D5DBA"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="#4B4A67">
 
 
     <!-- شعار الشركة -->
 
     <ImageView
         android:id="@+id/companyLogo"
-        android:layout_width="181dp"
-        android:layout_height="172dp"
-        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo"
         android:contentDescription="Company Logo"
-        android:src="@drawable/logo" />
+        android:layout_gravity="center" />
 
     <!-- اسم الشركة -->
     <TextView
@@ -23,44 +23,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:gravity="center"
         android:text="شركة الأفراح للمنتجات الغذائية"
-        android:textColor="#FFFFFFFF"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#FFFFFFFF" />
 
     <!-- أزرار التنقل -->
     <Button
         android:id="@+id/btn_add_employee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Add Employee"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#E7651D71"
-        android:text="Add Employee" />
+        />
 
     <Button
         android:id="@+id/btn_add_sales"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#E7651D71"
-        android:text="Add Sales" />
+        android:text="Add Sales"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_search_sales"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#E7651D71"
-        android:text="Search Sales" />
+        android:text="Search Sales"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_search_commission"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#E7651D71"
-        android:text="Search Commission" />
+        android:text="Search Commission"
+        android:layout_marginTop="16dp" />
 
     <TextView
         android:id="@+id/participated_std"
@@ -69,9 +66,9 @@
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="@string/participated_std"
-        android:textColor="#FFFFFFFF"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#FFFFFFFF"/>
 
 
 </LinearLayout>

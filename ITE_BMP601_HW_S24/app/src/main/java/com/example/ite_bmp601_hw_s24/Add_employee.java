@@ -32,7 +32,7 @@ public class Add_employee extends AppCompatActivity {
     EditText editRollno, editName, editDate;
     Spinner spinnerRegion;
     ImageView imgPhoto;
-    Button btnAdd, btnDelete, btnModify, btnView, btnViewAll, btnShowInfo,btnChoosePhoto;
+    Button btnAdd, btnDelete, btnModify, btnView, btnViewAll,btnChoosePhoto;
     SQLiteDatabase db;
     private ActivityResultLauncher<Intent> pickImageLauncher;
     private byte[] imageBytes;
@@ -58,7 +58,7 @@ public class Add_employee extends AppCompatActivity {
         btnDelete = findViewById(R.id.btn_Delete);
         btnView = findViewById(R.id.btnView);
         btnViewAll = findViewById(R.id.btnViewAll);
-        btnShowInfo = findViewById(R.id.btnShowInfo);
+
         btnChoosePhoto = findViewById(R.id.btnChoosePhoto);
 
         //  (Spinner)
@@ -96,7 +96,7 @@ public class Add_employee extends AppCompatActivity {
         btnModify.setOnClickListener(this::onModifyClick);
         btnView.setOnClickListener(this::onViewClick);
         btnViewAll.setOnClickListener(this::onViewAllClick);
-        btnShowInfo.setOnClickListener(view -> showMessage("Employee Manager", "Developed by Wasim 2024"));
+
         editDate.setOnClickListener(this::onDateClick);
         btnChoosePhoto.setOnClickListener(view -> pickImage());
 
