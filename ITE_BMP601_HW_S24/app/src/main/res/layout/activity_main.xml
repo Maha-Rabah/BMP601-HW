@@ -11,11 +11,11 @@
 
     <ImageView
         android:id="@+id/companyLogo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/logo"
+        android:layout_width="199dp"
+        android:layout_height="196dp"
+        android:layout_gravity="center"
         android:contentDescription="Company Logo"
-        android:layout_gravity="center" />
+        android:src="@drawable/logo" />
 
     <!-- اسم الشركة -->
     <TextView
