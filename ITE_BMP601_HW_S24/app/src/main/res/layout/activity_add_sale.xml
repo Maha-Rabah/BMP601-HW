@@ -1,308 +1,308 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
+    android:fillViewport="true"
     android:background="#4B4A67">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="visible"
-        android:layout_margin="10dp">
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/im_yourPhoto"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            tools:srcCompat="@tools:sample/avatars"
-            android:layout_margin="10dp"/>
+        <!-- Your existing content starts here -->
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="124dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/im_yourPhoto"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                tools:srcCompat="@tools:sample/avatars"
+                android:layout_margin="10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_height="124dp"
+                android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/ed_name"
-                    android:layout_width="126dp"
-                    android:layout_height="60dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/hint_name"
-                    android:inputType="text"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/ed_name"
+                        android:layout_width="126dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/hint_name"
+                        android:inputType="text"
+                        android:textAlignment="center"
+                        android:textColorHint="#DDAAAAAA"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="12dp"/>
+
+                    <Button
+                        android:id="@+id/btn_search"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="12dp"
+                        android:text="@string/btn_search" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_yourRegion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/tv_region"
                     android:textAlignment="center"
-                    android:textColorHint="#DDAAAAAA"
-                    android:textColor="#FFFFFFFF"
-                    android:textSize="12dp"/>
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:textColor="#FFFFFFFF"/>
 
-                <Button
-                    android:id="@+id/btn_search"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="12dp"
-                    android:text="@string/btn_search" />
             </LinearLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <TextView
-                android:id="@+id/tv_yourRegion"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/tv_region"
+                android:text="@string/tv_date"
                 android:textAlignment="center"
-                android:textSize="20dp"
-                android:gravity="center"
+                android:textColor="#FFFFFFFF"/>
+
+            <EditText
+                android:id="@+id/ed_month"
+                android:layout_width="163dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/et_month"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColorHint="#DDAAAAAA"
+                android:textColor="#FFFFFFFF"/>
+
+            <EditText
+                android:id="@+id/ed_year"
+                android:layout_width="186dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/et_year"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColorHint="#DDAAAAAA"
                 android:textColor="#FFFFFFFF"/>
 
         </LinearLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tv_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/tv_date"
-            android:textAlignment="center"
-            android:textColor="#FFFFFFFF"/>
-
-        <EditText
-            android:id="@+id/ed_month"
-            android:layout_width="163dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/et_month"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textColorHint="#DDAAAAAA"
-            android:textColor="#FFFFFFFF"/>
-
-        <EditText
-            android:id="@+id/ed_year"
-            android:layout_width="186dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/et_year"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textColorHint="#DDAAAAAA"
-            android:textColor="#FFFFFFFF"/>
-
-    </LinearLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tv_north"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_north"
-                android:textAlignment="center"
-                android:textColor="#FFFFFFFF"/>
-
-            <EditText
-                android:id="@+id/ed_north"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="0"
-                android:textAlignment="center"
-                android:hint="@string/hint_money"
-                android:inputType="number"
-                android:textSize="20sp"
-                android:textColorHint="#DDAAAAAA"
-                android:textColor="#FFFFFFFF"/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tv_south"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_south"
-                android:textAlignment="center"
-                android:textColor="#FFFFFFFF"/>
-
-            <EditText
-                android:id="@+id/ed_south"
-                android:layout_width="349dp"
-                android:layout_height="wrap_content"
-                android:autofillHints="0"
-                android:textAlignment="center"
-                android:hint="@string/hint_money"
-                android:inputType="number"
-                android:textColorHint="#DDAAAAAA"
-                android:textSize="20sp"
-                android:textColor="#FFFFFFFF"/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tv_east"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_east"
-                android:textAlignment="center"
-                android:textColor="#FFFFFFFF"/>
-
-            <EditText
-                android:id="@+id/ed_east"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="0"
-                android:textAlignment="center"
-                android:hint="@string/hint_money"
-                android:inputType="number"
-                android:textSize="20sp"
-                android:textColorHint="#DDAAAAAA"
-                android:textColor="#FFFFFFFF"/>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-            <TextView
-                android:id="@+id/tv_west"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_west"
-                android:textAlignment="center"
-                android:textColor="#FFFFFFFF"/>
-
-            <EditText
-                android:id="@+id/ed_west"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="0"
-                android:textAlignment="center"
-                android:hint="@string/hint_money"
-                android:inputType="number"
-                android:textSize="20sp"
-                android:textColor="#FFFFFFFF"
-                android:textColorHint="#DDAAAAAA"/>
-
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tv_lebanon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_lebanon"
-                android:textAlignment="center"
-                android:textColor="#FFFFFFFF"/>
-
-            <EditText
-                android:id="@+id/ed_lebanon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="0"
-                android:textAlignment="center"
-                android:hint="@string/hint_money"
-                android:inputType="number"
-                android:textColorHint="#DDAAAAAA"
-                android:textSize="20sp"
-                android:textColor="#FFFFFFFF"/>
-
-        </TableRow>
-
-    </TableLayout>
-
-    <LinearLayout
-        android:id="@+id/btn_cost"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/btn_profit"
+                <TextView
+                    android:id="@+id/tv_north"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="onclick"
-                    android:text="@string/btn_text"
-                    android:layout_margin="5dp"/>
+                    android:text="@string/tv_north"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFFFF"/>
+
+                <EditText
+                    android:id="@+id/ed_north"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="0"
+                    android:textAlignment="center"
+                    android:hint="@string/hint_money"
+                    android:inputType="number"
+                    android:textSize="20sp"
+                    android:textColorHint="#DDAAAAAA"
+                    android:textColor="#FFFFFFFF"/>
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/btn_view_commissions"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/tv_south"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="View Commissions"
-                    android:layout_margin="5dp"/>
+                    android:text="@string/tv_south"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFFFF"/>
+
+                <EditText
+                    android:id="@+id/ed_south"
+                    android:layout_width="349dp"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="0"
+                    android:textAlignment="center"
+                    android:hint="@string/hint_money"
+                    android:inputType="number"
+                    android:textColorHint="#DDAAAAAA"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFFFF"/>
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/btn_view_sales"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/tv_east"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="View Sales"
-                    android:layout_margin="5dp"/>
+                    android:text="@string/tv_east"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFFFF"/>
+
+                <EditText
+                    android:id="@+id/ed_east"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="0"
+                    android:textAlignment="center"
+                    android:hint="@string/hint_money"
+                    android:inputType="number"
+                    android:textSize="20sp"
+                    android:textColorHint="#DDAAAAAA"
+                    android:textColor="#FFFFFFFF"/>
+
             </TableRow>
-
-
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_west"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_west"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFFFF"/>
+
+                <EditText
+                    android:id="@+id/ed_west"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="0"
+                    android:textAlignment="center"
+                    android:hint="@string/hint_money"
+                    android:inputType="number"
+                    android:textSize="20sp"
+                    android:textColorHint="#DDAAAAAA"
+                    android:textColor="#FFFFFFFF"/>
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_lebanon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_lebanon"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFFFF"/>
+
+                <EditText
+                    android:id="@+id/ed_lebanon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="0"
+                    android:textAlignment="center"
+                    android:hint="@string/hint_money"
+                    android:inputType="number"
+                    android:textColorHint="#DDAAAAAA"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFFFF"/>
+
+            </TableRow>
+
         </TableLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/btn_cost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-</LinearLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <!--button to calculate profit-->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btn_profit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="onclick"
+                        android:text="@string/btn_text"
+                        android:layout_margin="5dp"/>
+                </TableRow>
+                <!--button to view commissions-->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btn_view_commissions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="View Commissions"
+                        android:layout_margin="5dp"/>
+                </TableRow>
+                <!--button to view sales-->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btn_view_sales"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="View Sales"
+                        android:layout_margin="5dp"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

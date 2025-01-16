@@ -1,74 +1,75 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp"
+    android:fillViewport="true"
     android:background="#4B4A67">
 
-
-    <!-- شعار الشركة -->
-
-    <ImageView
-        android:id="@+id/companyLogo"
-        android:layout_width="199dp"
-        android:layout_height="196dp"
-        android:layout_gravity="center"
-        android:contentDescription="Company Logo"
-        android:src="@drawable/logo" />
-
-    <!-- اسم الشركة -->
-    <TextView
-        android:id="@+id/companyName"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="شركة الأفراح للمنتجات الغذائية"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:orientation="vertical"
         android:gravity="center"
-        android:textColor="#FFFFFFFF" />
+        android:padding="16dp">
 
-    <!-- أزرار التنقل -->
-    <Button
-        android:id="@+id/btn_add_employee"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Employee"
-        android:layout_marginTop="16dp"
-        />
+        <!--company logo-->
+        <ImageView
+            android:id="@+id/companyLogo"
+            android:layout_width="199dp"
+            android:layout_height="196dp"
+            android:layout_gravity="center"
+            android:contentDescription="Company Logo"
+            android:src="@drawable/logo" />
+        <!--company name-->
+        <TextView
+            android:id="@+id/companyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="شركة الأفراح للمنتجات الغذائية"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#FFFFFFFF" />
+        <!--button to add employee-->
+        <Button
+            android:id="@+id/btn_add_employee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Employee"
+            android:layout_marginTop="16dp" />
+        <!--button to add sales-->
+        <Button
+            android:id="@+id/btn_add_sales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Sales"
+            android:layout_marginTop="16dp" />
+        <!--button to search sales-->
+        <Button
+            android:id="@+id/btn_search_sales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Search Sales"
+            android:layout_marginTop="16dp" />
+        <!--button to search commission-->
+        <Button
+            android:id="@+id/btn_search_commission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Search Commission"
+            android:layout_marginTop="16dp" />
+        <!--students-->
+        <TextView
+            android:id="@+id/participated_std"
+            android:layout_width="match_parent"
+            android:layout_height="181dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/participated_std"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFFFF"/>
 
-    <Button
-        android:id="@+id/btn_add_sales"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Sales"
-        android:layout_marginTop="16dp" />
-
-    <Button
-        android:id="@+id/btn_search_sales"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Search Sales"
-        android:layout_marginTop="16dp" />
-
-    <Button
-        android:id="@+id/btn_search_commission"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Search Commission"
-        android:layout_marginTop="16dp" />
-
-    <TextView
-        android:id="@+id/participated_std"
-        android:layout_width="match_parent"
-        android:layout_height="181dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="@string/participated_std"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFFFF"/>
-
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
