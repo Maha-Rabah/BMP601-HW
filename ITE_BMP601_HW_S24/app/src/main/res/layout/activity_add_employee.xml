@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         android:hint="Enter Name"
         android:minHeight="48dp"
-        android:textColorHint="#DDAAAAAA"/>
+        android:textColorHint="#DDAAAAAA"
+        android:textColor="#FFFFFFFF"/>
 
     <Spinner
         android:id="@+id/spinnerRegion"
@@ -37,7 +38,8 @@
         android:focusable="false"
         android:hint="Select Join Date"
         android:minHeight="48dp"
-        android:textColorHint="#DDAAAAAA"/>
+        android:textColorHint="#DDAAAAAA"
+        android:textColor="#FFFFFFFF"/>
 
     <ImageView
         android:id="@+id/imgPhoto"

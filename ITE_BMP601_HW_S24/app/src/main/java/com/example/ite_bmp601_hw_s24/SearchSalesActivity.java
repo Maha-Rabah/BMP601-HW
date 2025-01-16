@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SearchSalesActivity extends AppCompatActivity {
+    //declaring variables
     EditText ed_name, ed_month, ed_year;
     Button btn_search;
     TextView tv_result;
@@ -22,36 +23,36 @@ public class SearchSalesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_sales);
-
+        // Initialize views
         ed_name = findViewById(R.id.ed_name);
         ed_month = findViewById(R.id.ed_month);
         ed_year = findViewById(R.id.ed_year);
         btn_search = findViewById(R.id.btn_search);
         tv_result = findViewById(R.id.tv_result);
-
+        // Initialize database
         db = openOrCreateDatabase("EmployeeDB", MODE_PRIVATE, null);
-
-
+        // Search button click listener to handle search
         btn_search.setOnClickListener(view -> searchSales());
     }
-
+    // Method to search sales
     @SuppressLint("SetTextI18n")
     private void searchSales() {
-        String name = ed_name.getText().toString().trim();
+        String name = ed_name.getText().toString().trim().toLowerCase(); //case sensitive
         String month = ed_month.getText().toString().trim();
         String year = ed_year.getText().toString().trim();
-
+        // Entered Data Validation
         if (name.isEmpty() || month.isEmpty() || year.isEmpty()) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
-
+        //sql statement to retrieve data from the database
         Cursor cursor = db.rawQuery("SELECT * FROM sales WHERE Name = ? AND Month = ? AND Year = ?",
                 new String[]{name, month, year});
-
+        //checking if sales exists
         if (cursor.getCount() == 0) {
             tv_result.setText("No sales found for the given criteria.");
         } else {
+            //extract the retrieved data and storing in variables
             StringBuilder result = new StringBuilder();
             while (cursor.moveToNext()) {
                 String north = cursor.getString(4); // SaleNorthRegion
@@ -69,7 +70,6 @@ public class SearchSalesActivity extends AppCompatActivity {
             }
             tv_result.setText(result.toString());
         }
-
         cursor.close();
     }
 }
