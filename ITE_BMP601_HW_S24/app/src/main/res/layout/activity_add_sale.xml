@@ -43,13 +43,15 @@
                     android:inputType="text"
                     android:textAlignment="center"
                     android:textColorHint="#DDAAAAAA"
-                    android:textColor="#FFFFFFFF"/>
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="12dp"/>
 
                 <Button
                     android:id="@+id/btn_search"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textSize="12dp"
                     android:text="@string/btn_search" />
             </LinearLayout>
 
@@ -293,6 +295,8 @@
                     android:text="View Sales"
                     android:layout_margin="5dp"/>
             </TableRow>
+
+
 
             <TableRow
                 android:layout_width="match_parent"
