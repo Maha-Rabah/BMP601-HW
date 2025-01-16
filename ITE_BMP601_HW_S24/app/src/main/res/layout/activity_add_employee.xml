@@ -13,7 +13,8 @@
         android:hint="Enter Roll Number"
         android:minHeight="48dp"
         android:textColorHint="#DDAAAAAA"
-        android:textColor="#FFFFFFFF"/>
+        android:textColor="#FFFFFFFF"
+        android:inputType="number"/>
 
     <EditText
         android:id="@+id/ed_Name"
